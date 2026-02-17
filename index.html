@@ -3,261 +3,738 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copygen.ai — AI-Powered Copywriting</title>
-    <meta name="description" content="Generate high-converting copy in seconds with AI. Copygen.ai helps businesses create ads, emails, landing pages, and more.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✍️</text></svg>">
+    <title>Copygen.ai — We build lean startups powered by AI agents.</title>
+    <meta name="description" content="Copygen.ai is a startup factory. We copy proven models, automate everything with AI agents, and launch fast.">
+    <meta property="og:title" content="Copygen.ai &mdash; Startup Factory">
+    <meta property="og:description" content="We build lean startups powered by AI agents. Copy smart. Generate fast.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://copygen.ai">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6C3CE1;
-            --primary-light: #8B5CF6;
-            --primary-dark: #5228CC;
-            --bg: #0A0A0F;
-            --bg-card: #13131A;
-            --text: #E8E8ED;
-            --text-muted: #9393A8;
-            --border: #23232F;
-            --glow: rgba(108, 60, 225, 0.15);
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --lime: #9FE870;
+            --cta: #82E144;
+            --mint: #BCEF9C;
+            --forest: #2C4225;
+            --deep: #426337;
+            --midnight: #162113;
+            --white: #F0F0F0;
+            --white-muted: rgba(240, 240, 240, 0.7);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--midnight);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Gradient orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
+        h1, h2, h3, h4 {
+            font-family: 'Alata', sans-serif;
+            font-weight: 400;
+            line-height: 1.15;
         }
-        .orb-1 { width: 600px; height: 600px; background: var(--primary); top: -200px; right: -200px; }
-        .orb-2 { width: 400px; height: 400px; background: #2563EB; bottom: -100px; left: -100px; opacity: 0.25; }
+
+        a {
+            color: var(--lime);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
 
         .container {
-            position: relative;
-            z-index: 1;
-            max-width: 720px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Nav */
+        /* ── NAV ── */
         nav {
-            padding: 24px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgba(22, 33, 19, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(159, 232, 112, 0.08);
         }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-family: 'Alata', sans-serif;
+            font-size: 1.25rem;
+            color: var(--white);
             letter-spacing: -0.02em;
         }
-        .logo span { color: var(--primary-light); }
-        .badge {
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            color: var(--text-muted);
+
+        .logo span {
+            color: var(--lime);
         }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 100px 0 60px;
+        nav a.nav-link {
+            color: var(--white-muted);
+            font-size: 0.875rem;
+            margin-left: 32px;
+            transition: color 0.2s;
         }
+
+        nav a.nav-link:hover {
+            color: var(--lime);
+            opacity: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 3.6rem);
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             letter-spacing: -0.03em;
             margin-bottom: 24px;
-        }
-        .hero h1 em {
-            font-style: normal;
-            background: linear-gradient(135deg, var(--primary-light), #818CF8, #60A5FA);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 0 auto 40px;
+            max-width: 800px;
         }
 
-        /* CTA */
-        .cta-box {
+        .hero h1 .accent {
+            color: var(--lime);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--white-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--cta);
+            color: var(--midnight);
+            font-family: 'Alata', sans-serif;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(130, 225, 68, 0.25);
+            opacity: 1;
+            color: var(--midnight);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(159, 232, 112, 0.3);
+            color: var(--lime);
+            margin-left: 16px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+            background: rgba(159, 232, 112, 0.05);
+            box-shadow: none;
+        }
+
+        /* ── SECTION ── */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            font-family: 'Alata', sans-serif;
+            font-size: 0.8rem;
+            color: var(--lime);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+        }
+
+        section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        section p.lead {
+            font-size: 1.125rem;
+            color: var(--white-muted);
+            max-width: 640px;
+            line-height: 1.75;
+        }
+
+        /* ── THESIS ── */
+        .thesis {
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+        }
+
+        .thesis-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .thesis-content p {
+            color: var(--white-muted);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .thesis-content strong {
+            color: var(--white);
+        }
+
+        .thesis-quote {
+            font-family: 'Alata', sans-serif;
+            font-size: 1.5rem;
+            color: var(--lime);
+            line-height: 1.5;
+            border-left: 3px solid var(--lime);
+            padding-left: 24px;
+            margin-top: 16px;
+        }
+
+        /* ── HOW WE BUILD ── */
+        .how {
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .card {
+            background: rgba(44, 66, 37, 0.3);
+            border: 1px solid rgba(159, 232, 112, 0.08);
+            border-radius: 12px;
+            padding: 40px 32px;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(159, 232, 112, 0.25);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--white-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        /* ── STARTUPS PORTFOLIO ── */
+        .startups {
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+        }
+
+        .startup-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .startup-card {
+            background: rgba(44, 66, 37, 0.2);
+            border: 1px solid rgba(159, 232, 112, 0.08);
+            border-radius: 12px;
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
+        }
+
+        .startup-card:hover {
+            border-color: rgba(159, 232, 112, 0.25);
+        }
+
+        .startup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .startup-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .badge-research {
+            background: rgba(159, 232, 112, 0.1);
+            color: var(--lime);
+            border: 1px solid rgba(159, 232, 112, 0.2);
+        }
+
+        .badge-soon {
+            background: rgba(255, 200, 50, 0.1);
+            color: #FFC832;
+            border: 1px solid rgba(255, 200, 50, 0.2);
+        }
+
+        .badge-live {
+            background: rgba(130, 225, 68, 0.15);
+            color: var(--cta);
+            border: 1px solid rgba(130, 225, 68, 0.3);
+        }
+
+        .startup-card p {
+            color: var(--white-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .startup-card .market {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(159, 232, 112, 0.06);
+            font-size: 0.8125rem;
+            color: var(--deep);
+            color: rgba(159, 232, 112, 0.5);
+        }
+
+        /* ── FOUNDER ── */
+        .founder {
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .founder-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--forest);
+            border: 2px solid rgba(159, 232, 112, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--lime);
+            font-family: 'Alata', sans-serif;
+        }
+
+        .founder-bio h3 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .founder-bio .title {
+            color: var(--lime);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .founder-bio p {
+            color: var(--white-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 540px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--white-muted);
+            font-size: 0.875rem;
+            margin-right: 24px;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--lime);
+            opacity: 1;
+        }
+
+        /* ── NEWSLETTER ── */
+        .newsletter {
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 16px;
+        }
+
+        .newsletter p.lead {
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .signup-form {
             display: flex;
             gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
+            max-width: 480px;
+            margin: 0 auto 24px;
         }
-        .cta-box input {
+
+        .signup-form input[type="email"] {
+            flex: 1;
             padding: 14px 20px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            background: var(--bg-card);
-            color: var(--text);
-            font-size: 1rem;
-            width: 280px;
+            background: rgba(44, 66, 37, 0.4);
+            border: 1px solid rgba(159, 232, 112, 0.15);
+            border-radius: 6px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9375rem;
             outline: none;
             transition: border-color 0.2s;
         }
-        .cta-box input:focus { border-color: var(--primary-light); }
-        .cta-box input::placeholder { color: var(--text-muted); }
-        .cta-box button {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.15s, box-shadow 0.15s;
-        }
-        .cta-box button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(108, 60, 225, 0.35);
+
+        .signup-form input[type="email"]::placeholder {
+            color: rgba(240, 240, 240, 0.35);
         }
 
-        .cta-note {
-            margin-top: 16px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .signup-form input[type="email"]:focus {
+            border-color: var(--lime);
         }
 
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 60px 0;
-        }
-        .feature {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 24px;
-            transition: border-color 0.2s;
-        }
-        .feature:hover { border-color: var(--primary); }
-        .feature-icon { font-size: 1.8rem; margin-bottom: 12px; }
-        .feature h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .feature p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+        .contact-email {
+            color: var(--white-muted);
+            font-size: 0.875rem;
         }
 
-        /* Footer */
+        .contact-email a {
+            color: var(--lime);
+        }
+
+        /* ── FOOTER ── */
         footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            border-top: 1px solid rgba(159, 232, 112, 0.08);
+            padding: 48px 0;
         }
-        footer a { color: var(--primary-light); text-decoration: none; }
 
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--primary);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 500;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 100;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+
+        .footer-left {
+            color: var(--white-muted);
+            font-size: 0.8125rem;
+        }
+
+        .footer-left .company {
+            color: var(--white);
+            font-family: 'Alata', sans-serif;
+            margin-bottom: 4px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-right a {
+            color: var(--white-muted);
+            font-size: 0.8125rem;
+        }
+
+        .footer-right a:hover {
+            color: var(--lime);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .thesis-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cards,
+            .startup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .founder-photo {
+                margin: 0 auto;
+            }
+
+            .founder-bio p {
+                max-width: 100%;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
 
-    <div class="container">
-        <nav>
-            <div class="logo">copygen<span>.ai</span></div>
-            <div class="badge">Coming Soon</div>
-        </nav>
+    <!-- NAV -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Copygen<span>.ai</span></a>
+            <div class="nav-links">
+                <a href="#thesis" class="nav-link">Thesis</a>
+                <a href="#how" class="nav-link">How We Build</a>
+                <a href="#startups" class="nav-link">Startups</a>
+                <a href="#newsletter" class="nav-link">Follow Us</a>
+            </div>
+        </div>
+    </nav>
 
-        <section class="hero">
-            <h1>Write better copy,<br><em>10x faster</em></h1>
-            <p>AI-powered copywriting that converts. Generate ads, emails, landing pages, and social posts — in seconds, not hours.</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>We build lean startups powered by <span class="accent">AI agents.</span></h1>
+            <p>Copygen.ai is a startup factory. We copy proven models, automate everything with AI agents, and launch fast.</p>
+            <div class="hero-buttons">
+                <a href="#startups" class="btn">See Our Startups</a>
+                <a href="#newsletter" class="btn btn-outline">Follow the Journey</a>
+            </div>
+        </div>
+    </section>
 
-            <form class="cta-box" id="waitlist-form">
-                <input type="email" placeholder="your@email.com" required id="email-input">
-                <button type="submit">Join the Waitlist</button>
+    <!-- THESIS -->
+    <section class="thesis" id="thesis">
+        <div class="container">
+            <div class="section-label">The Thesis</div>
+            <h2>Agents change everything</h2>
+            <div class="thesis-content">
+                <div>
+                    <p>Most knowledge work will be done by AI agents within 3&ndash;5 years. The entrepreneurs who win won't be the ones with the most employees &mdash; they'll be the ones who <strong>automate ruthlessly</strong>.</p>
+                    <p>A $50K/month startup with 1&ndash;2 humans and 5 agents beats a $5M/year company with 30 employees and drama. Every time.</p>
+                    <p>We don't chase venture capital. We don't build in stealth. We <strong>ship, charge, learn, and iterate</strong>. Revenue is the only validation that matters.</p>
+                </div>
+                <div>
+                    <div class="thesis-quote">
+                        "Most startups hire too many people. We hire agents."
+                    </div>
+                    <p style="margin-top: 32px;">Copygen.ai is where we prove this thesis — one startup at a time. Every company we launch is an experiment in how far you can push the <strong>founder + agents</strong> model.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW WE BUILD -->
+    <section class="how" id="how">
+        <div class="container">
+            <div class="section-label">How We Build</div>
+            <h2>Copy smart. Generate fast.</h2>
+            <p class="lead">Every startup follows the same playbook. Find what works, automate it, and ship before anyone else notices the opportunity.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">&#x1F50D;</div>
+                    <h3>Copy Smart</h3>
+                    <p>We study proven business models and adapt them for underserved markets. Original ideas are overrated. Fast execution on validated models is not.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F916;</div>
+                    <h3>Agent-First</h3>
+                    <p>Every startup runs on AI agents from day one. Humans handle strategy and key decisions. Agents handle customer support, content, marketing, operations, and analytics.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F680;</div>
+                    <h3>Ship Fast</h3>
+                    <p>If we can't launch an MVP in weeks, we're overbuilding. If a startup doesn't show traction in 90 days, it gets shelved. No sentimentality. Only signal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STARTUPS -->
+    <section class="startups" id="startups">
+        <div class="container">
+            <div class="section-label">Portfolio</div>
+            <h2>Our Startups</h2>
+            <p class="lead">Each startup is designed to run lean &mdash; a skeleton crew of humans plus a team of AI agents. Here's what we're building.</p>
+            <div class="startup-grid">
+                <div class="startup-card">
+                    <div class="startup-header">
+                        <h3>TeoricoExpress</h3>
+                        <span class="badge badge-research">Research</span>
+                    </div>
+                    <p>Low-cost AI-powered preparation for the Spanish driver's license theoretical exam. Practice tests, explanations, and study plans — for a fraction of what autoescuelas charge.</p>
+                    <div class="market">&#x1F1EA;&#x1F1F8; Spain &#xB7; EdTech &#xB7; Freemium SaaS</div>
+                </div>
+                <div class="startup-card">
+                    <div class="startup-header">
+                        <h3>OpenClaw Setup Service</h3>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                    <p>Done-for-you installation and configuration of OpenClaw AI agents for businesses and professionals. We bridge the gap between powerful AI tools and non-technical users.</p>
+                    <div class="market">&#x1F310; Global &#xB7; AI Services &#xB7; Setup + Subscription</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FOUNDER section removed -->
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="section-label">Follow the Journey</div>
+            <h2>We share what we're building.</h2>
+            <p class="lead">What's working, what's failing, and what we're learning about running startups with AI agents. No spam. Just signal.</p>
+            <form class="signup-form" action="https://iarsuaga.substack.com/subscribe" method="get" onsubmit="return handleSignup(event)">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit" class="btn">Subscribe</button>
             </form>
-            <p class="cta-note">Be the first to know when we launch. No spam, ever.</p>
-        </section>
+            <p class="contact-email">Or reach us directly at <a href="mailto:hello@copygen.ai">hello@copygen.ai</a></p>
+        </div>
+    </section>
 
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Instant Copy</h3>
-                <p>From brief to polished copy in seconds. Facebook ads, Google ads, emails — you name it.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="company">Copygen Inc.</div>
+                    <div>Delaware, USA &middot; Copy Smart. Generate Fast.</div>
+                </div>
+                <div class="footer-right">
+                    <a href="mailto:hello@copygen.ai">Contact</a>
+                    <a href="https://x.com/copygenai" target="_blank" rel="noopener">&#x1D54F;</a>
+                    <a href="https://www.linkedin.com/company/copygenai/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <h3>Conversion-Focused</h3>
-                <p>Trained on high-performing copy. Every word is optimized to drive action.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌍</div>
-                <h3>Multi-Language</h3>
-                <p>Generate copy in 30+ languages. Reach global audiences without hiring translators.</p>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Copygen Inc. · <a href="mailto:hello@copygen.ai">hello@copygen.ai</a></p>
-        </footer>
-    </div>
-
-    <div class="toast" id="toast">🎉 You're on the list! We'll be in touch.</div>
+        </div>
+    </footer>
 
     <script>
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+        function handleSignup(e) {
             e.preventDefault();
-            const email = document.getElementById('email-input').value;
-            // Store in localStorage for now (replace with real backend later)
-            const waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
-            waitlist.push({ email, date: new Date().toISOString() });
-            localStorage.setItem('waitlist', JSON.stringify(waitlist));
+            const email = e.target.querySelector('input[type="email"]').value;
+            const btn = e.target.querySelector('button');
+            btn.textContent = '✓ Redirecting...';
+            btn.style.background = 'var(--forest)';
+            btn.style.color = 'var(--lime)';
+            // Redirect to Substack subscribe page with email pre-filled
+            window.open('https://iarsuaga.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+            setTimeout(() => {
+                btn.textContent = 'Subscribe';
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 3000);
+            return false;
+        }
 
-            // Show toast
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            document.getElementById('email-input').value = '';
-            setTimeout(() => toast.classList.remove('show'), 3000);
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section:not(.hero)').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
+
 </body>
 </html>
