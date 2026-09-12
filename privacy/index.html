@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Agent — Gmail Privacy Policy</title>
+  <meta name="description" content="Privacy policy for OpenClaw Agent's personal Gmail job-search automation.">
+  <style>
+    body { max-width: 760px; margin: 48px auto; padding: 0 24px; font: 18px/1.65 system-ui, sans-serif; color: #162113; background: #fafcf8; }
+    h1, h2 { line-height: 1.25; }
+    h1 { font-size: 2rem; }
+    h2 { margin-top: 2rem; font-size: 1.25rem; }
+    a { color: #28571b; overflow-wrap: anywhere; }
+    code { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>OpenClaw Agent — Gmail Privacy Policy</h1>
+    <p>Last updated: September 12, 2026.</p>
+
+    <h2>Who operates the app</h2>
+    <p>Ignacio Arsuaga operates OpenClaw Agent for the account owner's personal job-search automation. For privacy questions or deletion requests, contact <a href="mailto:hello@copygen.ai">hello@copygen.ai</a>. This policy covers that Gmail integration, not other Copygen products.</p>
+
+    <h2>What the app reads and why</h2>
+    <p>The app uses Google's <code>gmail.readonly</code> permission to read the connected account's messages, including sender and subject information and message bodies. This permission technically allows reading the mailbox; it is not restricted by Google to job alerts. The automation searches job-alert emails and reviews a limited batch of unread inbox messages to identify job-search correspondence, recruiter replies, interviews, and application updates. Unrelated messages are ignored during classification.</p>
+    <p>This Gmail integration does not send email, create Gmail drafts, delete messages, mark them read, or change labels. Suggested replies are provided separately for the account owner to review and send.</p>
+
+    <h2>Processing, storage, and service providers</h2>
+    <p>The automation runs on the owner's computer. It temporarily stores fetched messages and keeps job-search records, duplicate-detection records, and operational logs. Relevant email content may also be processed by the configured hosted AI provider; the inbox monitor is configured to use OpenAI. Selected action summaries and suggested replies are delivered through Telegram to the owner's designated job-search conversation. Following links in job alerts also contacts the linked job platforms and their tracking services.</p>
+    <p>Google data is used to provide this personal job-search service. It is not sold or used for advertising. Hosting this policy on Copygen's website does not itself upload Gmail messages to that website.</p>
+
+    <h2>Retention and deletion</h2>
+    <p>The inbox monitor deletes its temporary working files when the run exits normally or through its cleanup handler. Job-search records, logs, backups, and reports can remain until deleted; the integration does not enforce one automatic deletion period across all of them. Hosted processing and delivered reports are also subject to the relevant provider's retention controls. Contact the operator to request deletion of retained records. Deleting a record locally does not automatically delete copies held by a service provider.</p>
+
+    <h2>Control and revocation</h2>
+    <p>You can stop future Gmail access by removing OpenClaw Agent from your <a href="https://myaccount.google.com/connections">Google Account's third-party connections</a>. Revoking access does not automatically delete previously retained records or reports.</p>
+
+    <h2>Google API data</h2>
+    <p>OpenClaw Agent's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+  </main>
+</body>
+</html>
